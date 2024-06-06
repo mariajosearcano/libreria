@@ -354,6 +354,10 @@ i:hover {
     cursor: pointer;
 }
 
+i {
+    font-size: 3em;
+}
+
 
 
 #hero {
