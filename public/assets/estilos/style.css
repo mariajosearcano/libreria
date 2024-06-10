@@ -5,7 +5,7 @@ html {
 
 body {
     background-color: #f5f3f3;
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-family: "Merriweather", "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
     color: #222;
     display: grid;
     grid-template-rows: 35vh 90vh 25vh 360vh 45vh;
@@ -344,12 +344,6 @@ td {
     width: 17vw;
     height: 6.5vh;
     justify-self: center;
-}
-
-.resaltar {
-    background-color: rgb(229, 126, 126);
-    color: white;
-    text-align: center;
 }
 
 /*FOOTER*/

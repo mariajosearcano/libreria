@@ -5,7 +5,7 @@ html {
 
 body {
     background-color: #f5f3f3;
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-family: "Merriweather", "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
     color: #222;
     display: grid;
     grid-template-rows: 35vh 100vh 45vh;
