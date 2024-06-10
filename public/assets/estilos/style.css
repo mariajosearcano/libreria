@@ -8,7 +8,7 @@ body {
     font-family: "Merriweather", "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
     color: #222;
     display: grid;
-    grid-template-rows: 35vh 90vh 25vh 360vh 45vh;
+    grid-template-rows: 35vh 90vh 25vh 380vh 45vh;
 }
 
 /*HEADER*/
@@ -99,13 +99,13 @@ td {
     align-items: center;
 }
 
-#vaciar-carrito {
+.estilo {
     text-decoration: none;
-    width: 25em;
+    width: 15em;
     height: 3em;
 }
 
-#vaciar-carrito:hover {
+.estilo:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.3s ease;
     border-color: rgb(210, 201, 201);
@@ -303,7 +303,7 @@ td {
     grid-template-columns: 23vw 23vw 23vw;
     grid-template-rows: 81vh 81vh 81vh 81vh;
     justify-content: center;
-    gap: 1% 3%;
+    gap: 3% 3%;
 }
 
 .card {
@@ -344,6 +344,19 @@ td {
     width: 17vw;
     height: 6.5vh;
     justify-self: center;
+}
+
+.agrego {
+    background-image: linear-gradient(135deg,#21002f, #400559, #02053a, #141974, #092f40);
+    color: white;
+    border-radius: 3px;
+    width: 18.5em;
+    height: 2em;
+    text-align: center;
+}
+
+.encima {
+    z-index: 1;
 }
 
 /*FOOTER*/
@@ -394,7 +407,7 @@ ul {
 }
 
 .button-de, 
-#vaciar-carrito {
+.estilo {
     border-width: 0.5px;
     border-color: rgb(176, 173, 173);
     background-color: transparent;
@@ -414,7 +427,7 @@ ul {
 @media only screen and (min-width: 320px) and (max-width: 720px) {
 
     body {
-        grid-template-rows: 60vh 90vh 55vh 1090vh 45vh;
+        grid-template-rows: 60vh 90vh 55vh 1200vh 45vh;
     }
     
     /*HEADER*/
@@ -447,9 +460,11 @@ ul {
         height: 60vh;
         width: 70vw;
     }
-    
-    #vaciar-carrito {
-        width: 20em;
+
+    .estilo {
+        text-decoration: none;
+        width: 10em;
+        height: 3em;
     }
 
     /*MENU HAMBURGUESA*/
@@ -495,6 +510,7 @@ ul {
         grid-template-rows: repeat(12, 80vh);
         justify-content: center;
         align-items: center;
+        gap: 2%;
     }
     
     .card {
@@ -510,6 +526,11 @@ ul {
     .agregar-carrito {
         width: 10em;
         height: 3em;
+    }
+
+    .agrego {
+        width: 10em;
+        height: 2em;
     }
 
 }
