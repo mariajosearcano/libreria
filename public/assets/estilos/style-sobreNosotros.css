@@ -1,0 +1,288 @@
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #f5f3f3;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    color: #222;
+    display: grid;
+    grid-template-rows: 35vh 100vh 45vh;
+}
+
+/*HEADER*/
+
+header {
+    background: white;
+    text-align: center;
+    position: relative; /*el elemento seguirá ocupando su espacio original en el diseño, aunque se desplace visualmente*/
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 22vw 25vw 50vw;
+    align-items: center;
+}
+
+#logo {
+    width: 16vw;
+    height: auto;
+    margin: auto 3em;
+}
+
+#logo img {
+    width: 100%;
+    height: auto;
+}
+
+/*MENU HAMBURGUESA*/
+
+.hamburguer {
+    position: fixed;
+    top: 30px; /*que distancia hacia arriba del contenedor (que tanto se aleja del contenedor hacia arriba*/
+    right: 30px; /*lo mismo que top, pero hacia la derecha*/
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.menu-navegacion {
+    position: fixed;
+    top: 0;
+    width: 20vw; /*medida relativa segun la ventana grafica*/
+    height: 100%;
+    background-color: white;
+    border: 1px solid #f5f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20vh;
+    right: 0;
+    transform: translateX(110%);
+    transition:transform 0.3s ease-in-out;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.menu-navegacion a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.menu-navegacion a:hover {
+    color: grey;
+}
+
+#log {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2vh;
+}
+
+#log > button {
+    background-image: linear-gradient(135deg,#21002f, #400559, #02053a, #141974, #092f40);
+    width: 15em;
+    height: 3em;
+    color: white;
+    border-width: 0;
+    border-radius: 3px;
+}
+
+#log > button:hover {
+    background-image: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+    border-width: 0.5px;
+    border-color: rgb(176, 173, 173);
+    background-color: transparent;
+    color: rgb(176, 173, 173);
+    border-radius: 3px;
+}
+
+.spread {
+    transform: translateX(0);
+}
+
+#perfil {
+    width: 10vw;
+    height: 21vh;
+    border-radius: 50%;
+}
+
+#perfil > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/*CARTAS*/
+
+#lista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#contenedor {
+    display: grid;
+    grid-template-columns: 23vw 23vw 23vw 23vw;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+.card {
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    background: white;
+    border-radius: 20px;
+}
+
+.contenedor-img {
+    width: 10em;
+    height: 10em;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.contenedor-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+  
+.info-card  {
+    display: grid;
+    grid-template-rows: 4em 3em;
+    margin: 5vh auto auto auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/*FOOTER*/
+
+footer {
+    border-top:1px solid #aaa;;
+    padding-top: 40px;   
+    display: grid;
+    grid-template-rows: 1em 1em 1em;
+    text-align: center;
+    gap: 3em;
+}
+
+footer a {
+    display: block;
+    text-decoration: none;
+    color: #7a249f;
+}
+
+.redes i:hover,
+footer a:hover,
+#hamburguesa:hover {
+    opacity: 0.7;
+}
+
+/*GENERAL*/
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+ul {
+    list-style: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 720px) {
+
+    body {
+        grid-template-columns: 100%;
+        grid-template-rows: 45vh 350vh 45vh;
+    }
+    
+    /*HEADER*/
+
+    header {
+        grid-template-rows: 20vh 20vh;
+        grid-template-columns: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    #logo {
+        width: 25vw;
+        margin: 0;
+        justify-self: center;
+        align-self: center;
+    }
+
+    #logo img {
+        width: 100%;
+        height: auto;
+        justify-self: center;
+        align-self: center;
+    }
+
+    /*MENU HAMBURGUESA*/
+
+    .menu-navegacion {
+        width: 50vw; /*medida relativa segun la ventana grafica*/
+        gap: 20vh;
+    }
+
+    #perfil {
+        width: 7em;
+        height: 7em;
+    }
+
+    #log button {
+        width: 35vw;
+        height: 3em;
+    }
+
+    /*CARTAS*/
+
+    #lista {
+        align-items: start;
+    }
+
+    .contenedor-img {
+        width: 30vw;
+        height: 30vh;
+        margin: auto;
+    }
+    
+    #contenedor {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, 80vh);
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card {
+        width: 50vw;
+        height: 65vh;
+        justify-self: center;
+    }
+
+    .info-card {
+        margin: 10px auto auto auto;
+    }
+
+}
+
+

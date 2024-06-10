@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Sobre Nosotros</title>
+
+        <link rel="icon" href="../assets/icon/icon.png" type="image/x-icon">
+        <link rel="preload" href="../assets/estilos/style-sobreNosotros.css" as="style">
+        <link rel="stylesheet" href="../assets/estilos/style-sobreNosotros.css" as="style">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    </head>
+
+    <body>
+        <header>
+            <div id="logo">
+                <img onclick="window.location.href = '../vista/index.html'" src="../assets/icon/icon.png" alt="" class="pointer">
+            </div>
+
+            <div id="title">
+                <h1>¿Quiénes somos?</h1>
+            </div>
+
+            <ul>
+                <li>
+                    <i class='bx bx-menu-alt-right hamburguer pointer icon pointer' id="hamburguesa"></i>
+                    <div class="menu-navegacion">
+                        <div id="perfil">
+                            <img src="../assets/silueta.png" alt="">
+                        </div>
+
+                        <div id="log" class="pointer">
+                            <button onclick="window.location.href = '../vista/Login.html'">Inicia sesión</button>
+                            <button>Registrate</button>
+                        </div>
+
+                        <a href="../manuales/">Ayuda</a>
+                    </div>
+                </li>
+            </ul>
+        </header>
+
+        <main id="lista">
+            <div id="contenedor">
+                <div class="card">
+                    <div class="contenedor-img">
+                        <img src="../assets/team/Dario.png" class="" title=".">
+                    </div>
+                    <div class="info-card">
+                        <h4>Darío Sepúlveda Gómez</h4>
+
+                        <div class="redes">
+                            <i class='bx bxl-facebook pointer icon'></i>
+                            <i class='bx bxl-twitter pointer icon'></i>
+                            <i class='bx bxl-instagram pointer icon'></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="contenedor-img">
+                        <img src="../assets/team/Mariana.png" class="" title=".">
+                    </div>
+                    <div class="info-card">
+                        <h4>Mariana Montoya Sepúlveda</h4>
+
+                        <div class="redes">
+                            <i class='bx bxl-facebook pointer icon'></i>
+                            <i class='bx bxl-twitter pointer icon'></i>
+                            <i class='bx bxl-instagram pointer icon'></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="contenedor-img">
+                        <img src="../assets/team/Jose.png" class="" title=".">
+                    </div>
+                    <div class="info-card">
+                        <h4>José Alejandro Calderón Jaramillo</h4>
+
+                        <div class="redes">
+                            <i class='bx bxl-facebook pointer icon'></i>
+                            <i class='bx bxl-twitter pointer icon'></i>
+                            <i class='bx bxl-instagram pointer icon'></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="contenedor-img">
+                        <img src="../assets/team/Maria.png" class="" title=".">
+                    </div>
+                    <div class="info-card">
+                        <h4>Maria José Arcila Cano</h4>
+
+                        <div class="redes">
+                            <i onclick="window.location.href = 'https://www.facebook.com/mariajosearcano/'" class='bx bxl-facebook pointer icon'></i>
+                            <i onclick="window.location.href = 'https://twitter.com/mariajosearcano'" class='bx bxl-twitter pointer icon'></i>
+                            <i onclick="window.location.href = 'https://www.instagram.com/mariajosearcano/'" class='bx bxl-instagram pointer icon'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="redes">
+                <i class='bx bxl-facebook pointer icon'></i>
+                <i class='bx bxl-twitter pointer icon'></i>
+                <i class='bx bxl-instagram pointer icon'></i>
+            </div>
+
+            <span>© Derechos reservados 2024</span>
+        </footer>
+
+        <script src="../controlador/script-sobreNosotros.js"></script>
+    </body>
+
+</html>

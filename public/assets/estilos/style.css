@@ -1,0 +1,523 @@
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #f5f3f3;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    color: #222;
+    display: grid;
+    grid-template-rows: 35vh 90vh 25vh 360vh 45vh;
+}
+
+/*HEADER*/
+
+header {
+    background: white;
+    text-align: center;
+    position: relative; /*el elemento seguirá ocupando su espacio original en el diseño, aunque se desplace visualmente*/
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 22vw 25vw 50vw;
+    align-items: center;
+}
+
+#logo {
+    width: 16vw;
+    height: auto;
+    margin: auto 3em;
+}
+
+#logo img {
+    width: 100%;
+    height: auto;
+}
+
+#submenu {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 5em 0 0;
+}
+
+/*CARRITO*/
+  
+#carrito {
+    display: none;
+}
+  
+#cart:hover #carrito {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #f5f3f3;
+    padding: 20px;
+    height: 65vh;
+    width: 450px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    overflow-x: scroll;
+    padding: 20px 30px 30px 30px;
+}
+
+tr {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+}
+
+th, 
+td {
+    border-bottom: 1px solid #E1E1E1;
+    padding: 20px 0;
+}
+
+.borrar-libro {
+    color: rgb(229, 126, 126);
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.borrar-libro:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra gris translúcida */
+    transition: box-shadow 0.3s ease;
+    border-radius: 50%;
+}
+
+#contenedor-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#vaciar-carrito {
+    text-decoration: none;
+    width: 25em;
+    height: 3em;
+}
+
+#vaciar-carrito:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+    border-color: rgb(210, 201, 201);
+    color: rgb(210, 201, 201);
+}
+
+/*MENU HAMBURGUESA*/
+
+.hamburguer {
+    position: fixed;
+    top: 30px; /*que distancia hacia arriba del contenedor (que tanto se aleja del contenedor hacia arriba*/
+    right: 30px; /*lo mismo que top, pero hacia la derecha*/
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.menu-navegacion {
+    position: fixed;
+    top: 0;
+    width: 20vw; /*medida relativa segun la ventana grafica*/
+    height: 100%;
+    background-color: white;
+    border: 1px solid #f5f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20vh;
+    right: 0;
+    transform: translateX(110%);
+    transition:transform 0.3s ease-in-out;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.menu-navegacion a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.menu-navegacion a:hover {
+    color: grey;
+}
+
+#log {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2vh;
+}
+
+#log button {
+    background-image: linear-gradient(135deg,#21002f, #400559, #02053a, #141974, #092f40);
+    width: 15em;
+    height: 3em;
+    color: white;
+    border-width: 0;
+    border-radius: 3px;
+}
+
+#log button:hover {
+    background-image: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+    border-width: 0.5px;
+    border-color: rgb(176, 173, 173);
+    background-color: transparent;
+    color: rgb(176, 173, 173);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.spread {
+    transform: translateX(0);
+}
+
+#perfil {
+    width: 10vw;
+    height: 21vh;
+    border-radius: 50%;
+}
+
+#perfil > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/*CARRUSEL*/
+
+#contenedor-carrusel{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgContenedor{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    transition: left 1s ease; 
+    gap: 4em;
+}
+
+.carrusel_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    position: relative;
+    height: 22em;
+    width: 13.2em;
+    filter: saturate(10%);
+    transition: 0.7s;
+    background-color: rgba(0, 0, 0,0.4);
+    border-radius: 20px;
+}
+
+.button {
+    position: absolute;
+    height: 22em;
+    width: 13.2em;
+    transition: 0.7s;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px ;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, .2)
+}
+
+.active {
+    width: 300px;
+    height: 500px;
+    background-color: transparent;
+    filter: saturate(100%);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/*BARRA*/
+
+#barra {
+    padding: 20px 0;
+    background-image: linear-gradient(135deg,#21002f, #400559, #02053a, #141974, #092f40);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.mv {
+    display: grid;
+    grid-template-rows: 5vh 5vh;
+    padding: 5vh 0;
+}
+
+.mv p, 
+.mv h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.editable {
+    width: 100%;
+    height: 30vh;
+}
+  
+.mv p {
+    font-size: 16px;
+}
+
+.between {
+    font-size: 4em;
+}
+
+/*LIBROS*/
+
+#lista-libros h1 {
+    text-align: center;
+}
+
+#contenedor {
+    display: grid;
+    grid-template-columns: 23vw 23vw 23vw;
+    grid-template-rows: 81vh 81vh 81vh 81vh;
+    justify-content: center;
+    gap: 1% 3%;
+}
+
+.card {
+    text-align: center;
+    border: 1px solid #e1e1e1;
+    background: white;
+    border-radius: 20px;
+}
+
+.contenedor-img {
+    width: 10em;
+    height: 15em;
+    margin: auto;
+}
+
+.contenedor-img img {
+    width: 100%;
+    height: 100%;
+}
+  
+.info-card  {
+    display: grid;
+    grid-template-rows: 4em 3em 3em 3em;
+    margin: 15px auto auto auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1vw;
+}
+  
+.info-card .precio {
+    font-weight: 700;
+    font-size: 22px;
+    padding: 0 1em 0 0;
+}
+
+.agregar-carrito {
+    text-decoration: none;
+    width: 17vw;
+    height: 6.5vh;
+    justify-self: center;
+}
+
+.resaltar {
+    background-color: rgb(229, 126, 126);
+    color: white;
+    text-align: center;
+}
+
+/*FOOTER*/
+
+footer {
+    margin-top: 40px;
+    border-top:1px solid #aaa;;
+    padding-top: 40px;   
+    display: grid;
+    grid-template-rows: 1em 1em 1em;
+    text-align: center;
+    gap: 3em;
+}
+
+#redes i:hover,
+footer a:hover,
+#cart i:hover, 
+#hamburguesa:hover {
+    opacity: 0.7;
+}
+
+.link {
+    margin: 0 10px;
+}
+  
+footer a{
+    display: block;
+    text-decoration: none;
+    color: #7a249f;
+}
+
+/*GENERAL*/
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+ul {
+    list-style: none;
+}
+
+.button-de, 
+#vaciar-carrito {
+    border-width: 0.5px;
+    border-color: rgb(176, 173, 173);
+    background-color: transparent;
+    color: rgb(176, 173, 173);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.button-de:hover {
+    background-image: linear-gradient(135deg,#21002f, #400559, #02053a, #141974, #092f40);
+    transition: background-image 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+    color: white;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 720px) {
+
+    body {
+        grid-template-rows: 60vh 90vh 55vh 1090vh 45vh;
+    }
+    
+    /*HEADER*/
+
+    header {
+        grid-template-rows: 20vh 20vh 10vh;
+        grid-template-columns: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    #logo {
+        width: 25vw;
+        margin: 0;
+        justify-self: center;
+        align-self: center;
+    }
+
+    #logo img {
+        width: 100%;
+        height: auto;
+        justify-self: center;
+        align-self: center;
+    }
+
+    /*CARRITO*/
+      
+    #cart:hover #carrito {
+        height: 60vh;
+        width: 70vw;
+    }
+    
+    #vaciar-carrito {
+        width: 20em;
+    }
+
+    /*MENU HAMBURGUESA*/
+
+    .menu-navegacion {
+        width: 50vw; /*medida relativa segun la ventana grafica*/
+        gap: 20vh;
+    }
+
+    #perfil {
+        width: 7em;
+        height: 7em;
+    }
+
+    #log button {
+        width: 35vw;
+        height: 3em;
+    }
+
+    /*CARRUSEL*/
+
+    #imgContenedor{
+        overflow-x: scroll;
+    }
+
+    /*BARRA*/
+
+    #barra {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*LIBROS*/
+
+    .contenedor-img {
+        width: 10em;
+        height: 15em;
+        margin: auto;
+    }
+    
+    #contenedor {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(12, 80vh);
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card {
+        width: 50vw;
+        height: 80vh;
+        justify-self: center;
+    }
+
+    .info-card {
+        margin: 10px auto auto auto;
+    }
+
+    .agregar-carrito {
+        width: 10em;
+        height: 3em;
+    }
+
+}
+
+
