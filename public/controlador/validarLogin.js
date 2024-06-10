@@ -6,44 +6,41 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-async function validarCredenciales(nombreUsuario, contrasena) {
-    try {
-      const response = await fetch('/validarUsuario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nombreUsuario, contrasena })
-      });
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
   
-      if (response.ok) {
-        const resultado = await response.json();
-        return resultado.esValido;
-      } else {
-        throw new Error('Error al validar las credenciales');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Hubo un error al validar las credenciales');
-      return false;
-    }
-  }
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
   
-  // Uso de la función validarCredenciales
-  formulario.addEventListener('submit', async function (event) {
-    event.preventDefault();
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
   
-    // ... código existente ...
+            const result = await response.text();
   
-    let nombreUsuario = document.getElementById('username').value;
-    let contrasena = document.getElementById('password').value;
-  
-    const credencialesValidas = await validarCredenciales(nombreUsuario, contrasena);
-    if (!credencialesValidas) {
-      alert('El nombre de usuario o la contraseña son incorrectos');
-      return;
-    }
+            if (response.ok) {
+                // Redirigir a la página correspondiente después de iniciar sesión
+                if (result === 'usuario') {
+                    window.location.href = 'index.html';
+                } else if (result === 'administrador') {
+                    window.location.href = 'admin.html';
+                }
+            } else {
+                alert(result); // Mensaje de error
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error al iniciar sesión. Por favor, inténtelo de nuevo más tarde.');
+        }
+    });
+  });
   
 
-  });
   

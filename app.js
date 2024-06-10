@@ -46,6 +46,9 @@ app.get("/dtoPersonal.html", function (req, res) {
 app.get("/Login.html", function (req, res) {
     res.sendFile(path.join(__dirname, "public", "vista", "Login.html"));
 });
+app.get("/admin.html", function (req, res) {
+    res.sendFile(path.join(__dirname, "public", "vista", "Login.html"));
+});
 
 app.get('/index.html', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'vista', 'index.html'));
@@ -58,6 +61,29 @@ async function connectToMongoDB() {
     await client.connect();
     return client.db('dbAgenda'); // Reemplaza 'dbAgenda' con el nombre de tu base de datos
 }
+//Crear administrador
+async function createAdminCollection() {
+    try {
+        const db = await connectToMongoDB();
+        const adminCollection = db.collection('Administradores');
+        const adminExists = await adminCollection.findOne({ correo: 'admin@gmail.com' });
+
+        if (!adminExists) {
+            await adminCollection.insertOne({
+                correo: 'admin@gmail.com',
+                contrasena: '1234@'
+            });
+            console.log('Administrador creado correctamente');
+        } else {
+            console.log('El administrador ya existe');
+        }
+    } catch (error) {
+        console.error('Error al crear la colección de administradores:', error);
+    }
+}
+
+createAdminCollection();
+
 
 // Obtener todas las personas
 app.get('/verificarDatos', async (req, res) => {
@@ -139,6 +165,37 @@ app.put('/actualizarDatos', async (req, res) => {
         res.status(500).send('Error al actualizar los datos');
     }
 });
+
+// Ruta para manejar el inicio de sesión
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const db = await connectToMongoDB();
+        const user = await db.collection('Personas').findOne({ email: username });
+
+        if (user && user.contrasena === password) {
+            // Usuario normal
+            return res.status(200).send('usuario');
+        }
+
+        const admin = await db.collection('Administradores').findOne({ correo: username });
+
+        if (admin && admin.contrasena === password) {
+            // Administrador
+            return res.status(200).send('administrador');
+        }
+
+        // Credenciales incorrectas
+        res.status(401).send('Correo electrónico o contraseña incorrectos.');
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        res.status(500).send('Error al iniciar sesión');
+    }
+});
+
+
+
+
 
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;//verifica si la variable de entorno PORT esta definida, si no, se asigna el valor 3000
