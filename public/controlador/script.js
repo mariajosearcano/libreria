@@ -37,6 +37,7 @@ function agregarAlCarrito(elemento) {
         });
     }
 
+    agrego(e);
     renderizarCarrito();
 }
 
@@ -88,6 +89,21 @@ botonesAgregar.forEach(boton => {
 
 // Evento de click en botón "Vaciar carrito"
 vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+
+//Evento 2 agregar al carrito
+function agrego(e) {
+    const newElement = document.createElement('p');
+    newElement.textContent = 'Agregado al carrito';
+    newElement.classList.add('agrego')
+    e.appendChild(newElement);
+
+    e.classList.add('encima');
+    newElement.classList.add('encima');
+  
+    setTimeout(() => {
+        e.removeChild(newElement);
+    }, 2000); // 2 segundos
+}
 
 
 //CARRUSEL
