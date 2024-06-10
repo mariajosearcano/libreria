@@ -33,7 +33,7 @@ En resumen, un middleware es una función que se ejecuta entre la recepción de 
 
 // Ruta para la página principal
 app.get("/", function (req, res) { //funcion de Express que define una ruta para manejar las solicitudes tipo HTTP GET
-    res.sendFile(path.join(__dirname, "public", "vista", "index.html"));
+    res.sendFile(path.join(__dirname, "public", "vista", "admin.html"));
 }); //se activa cuando se hace una solicitud GET a la raiz del servidor ("/")
 //o sea que se ejecutara cuando se acceda a la URL base de la aplicacion (http://localhost:3000/)
 //sendFile: envia el archivo especificado al cliente
@@ -51,12 +51,17 @@ app.get('/index.html', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'vista', 'index.html'));
 }); //no es necesario, ya con especificar la ruta raiz, eso vasta
 
+app.get('/index.html', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'vista', 'admin.html'));
+}); //no es necesario, ya con especificar la ruta raiz, eso vasta
+
 const uri = 'mongodb://127.0.0.1:27017'; // Reemplaza con la URI de tu instancia de MongoDB
 
 async function connectToMongoDB() {
     const client = new MongoClient(uri);
     await client.connect();
     return client.db('dbAgenda'); // Reemplaza 'dbAgenda' con el nombre de tu base de datos
+    return client.db('Libros'); //Hay que crear una nueva BD llamada Libros para el almacenamiento de datos
 }
 
 // Obtener todas las personas

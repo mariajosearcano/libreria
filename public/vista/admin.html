@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin</title>
+        <link rel="icon" href="../assets/icon/icon.png" type="image/x-icon">
+        <link rel="preload" href="../assets/estilos/styleAdmin.css" as="style">
+        <link rel="stylesheet" href="../assets/estilos/styleAdmin.css"
+            as="style">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div id="logo">
+                <img onclick="window.location.href = '../vista/index.html'"
+                    src="../assets/icon/icon.png" alt class="pointer">
+            </div>
+
+            <div id="title">
+                <h1>Entre Lineas</h1>
+                <p>ESTANTE VIRTUAL</p>
+                <p>Administrador de página</p>
+            </div>
+
+            <ul>
+                <li>
+                    <i class='bx bx-menu-alt-right hamburguer pointer icon'
+                        id="hamburguesa"></i>
+                    <div class="menu-navegacion">
+                        <div id="perfil">
+                            <img src="../assets/silueta.png" alt>
+                        </div>
+
+                        <div id="log">
+                            <button
+                                onclick="window.location.href = '../vista/Login.html'">Inicia
+                                sesión</button>
+                            <button>Registrate</button>
+                        </div>
+
+                        <a href="../manuales/">Ayuda</a>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container">
+                        <div class="content-wrapper">
+                            <div id="imagen"></div>
+                            <div class="form-wrapper">
+                                <form>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title"
+                                                style="font-style:oblique;">Misión
+                                                y Visión Empresariales</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div
+                                                        class="card card-primary card-outline">
+                                                        <div
+                                                            class="card-header">
+                                                            <h3
+                                                                class="card-title">Misión</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p
+                                                                id="misionTxt"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div
+                                                        class="card card-primary card-outline">
+                                                        <div
+                                                            class="card-header">
+                                                            <h3
+                                                                class="card-title">Visión</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p
+                                                                id="visionTxt"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <h3
+                                                            class="card-title">Actualizar
+                                                            Misión</h3>
+                                                        <textarea
+                                                            class="form-control"
+                                                            rows="3" id="mision"
+                                                            placeholder="Escriba la nueva misión aquí..."
+                                                            name="mision"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <h3
+                                                            class="card-title">Actualizar
+                                                            Visión</h3>
+                                                        <textarea
+                                                            class="form-control"
+                                                            rows="3" id="vision"
+                                                            placeholder="Escriba la nueva visión aquí..."
+                                                            name="vision"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="card-footer">
+                                            <button type="submit"
+                                                class="btn btn-multicolor"
+                                                onclick="guardarCambios(event)">Guardar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br>
+                                <br>
+
+                                <section class="contenedor">
+                                    <button id="agregarLibroBtn"
+                                        class="btn btn-primary">Agregar
+                                        libro</button>
+                                    <br>
+                                    <br>
+                                    <div id="formularioLibro"
+                                        class="formulario-libro"
+                                        style="display: none;">
+                                        <form id="libroForm">
+                                            <div class="form-group">
+                                                <label
+                                                    for="imagenLibro">Imagen</label>
+                                                <input type="file"
+                                                    class="form-control"
+                                                    id="imagenLibro"
+                                                    name="imagenLibro"
+                                                    accept="image/*">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nombreLibro">Nombre
+                                                    del libro</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="nombreLibro"
+                                                    name="nombreLibro"
+                                                    placeholder="Ingresar el nombre del libro">
+                                            </div>
+                                            <div class="form-group">
+                                                <label
+                                                    for="autorLibro">Autor(es)
+                                                    del libro</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="autorLibro"
+                                                    name="autorLibro"
+                                                    placeholder="Ingresar el autor o autores del libro">
+                                            </div>
+                                            <div class="form-group">
+                                                <label
+                                                    for="editorialLibro">Editorial</label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="editorialLibro"
+                                                    name="editorialLibro"
+                                                    placeholder="Ingresar la editorial">
+                                            </div>
+                                            <div class="form-group">
+                                                <label
+                                                    for="precioLibro">Precio</label>
+                                                <input type="number"
+                                                    class="form-control"
+                                                    id="precioLibro"
+                                                    name="precioLibro"
+                                                    placeholder="Valor del libro">
+                                            </div>
+                                            <button type="submit"
+                                                class="btn btn-primary">Guardar
+                                                datos</button>
+                                        </form>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="../controlador/admin.js"></script>
+</html>

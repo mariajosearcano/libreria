@@ -1,5 +1,5 @@
 {
-  "imagen": "../assets/imagen-corporativa.svg",
+  "imagen_corporativa": "../assets/icon/icon.png",
   "mision": "“Entre Líneas, Estante Virtual” se dedica a conectar a los lectores con un universo de conocimiento y fantasía. Nuestra misión es ofrecer una experiencia de compra personalizada y accesible, donde cada libro es una puerta abierta a mundos nuevos y emocionantes. Nos comprometemos a proporcionar una selección curada de títulos que alimenten la pasión por la lectura y el deseo de aprender.",
   "vision": "La visión es ser el destino en línea más confiable y preferido para los amantes de los libros de todas las edades y gustos. Aspiramos a crear una comunidad donde “Entre Líneas, Estante Virtual” sea sinónimo de descubrimiento y crecimiento personal, un lugar donde cada visita se convierte en una aventura literaria inolvidable."
 }
