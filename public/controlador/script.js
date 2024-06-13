@@ -162,4 +162,24 @@ window.addEventListener('click', e =>{
         menu.classList.toggle("spread")
     }
 })
+
+//Actualización de misión y visión
+fetch('../modelo/datos.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        //defino las variables y sus valores
+        const mision = data.mision;
+        const vision = data.vision;
+
+        //mostrar mision en <p>
+        const parrafoMision = document.getElementById('misionTxt');
+        parrafoMision.textContent = mision;
+
+        //mostrar vision en <p>
+        const parrafoVision = document.getElementById('visionTxt');
+        parrafoVision.textContent = vision;
+
+    })
+    .catch(error => console.error('Error cargando el archivo JSON:', error));
         

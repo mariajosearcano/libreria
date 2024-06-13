@@ -53,7 +53,11 @@ app.get('/index.html', function(req, res) {
 
 app.get('/index.html', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'vista', 'admin.html'));
-}); //no es necesario, ya con especificar la ruta raiz, eso vasta
+}); 
+
+app.get('/admin.html', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'vista', 'index.html'));
+}); 
 
 const uri = 'mongodb://127.0.0.1:27017'; // Reemplaza con la URI de tu instancia de MongoDB
 
@@ -61,15 +65,15 @@ async function connectToMongoDB() {
     const client = new MongoClient(uri);
     await client.connect();
     return client.db('dbAgenda'); // Reemplaza 'dbAgenda' con el nombre de tu base de datos
-    return client.db('Libros'); //Hay que crear una nueva BD llamada Libros para el almacenamiento de datos
+    //return client.db('Libros'); //Hay que crear una nueva BD llamada Libros para el almacenamiento de datos
 }
 
-// Obtener todas las personas
+// Obtener libros
 app.get('/verificarDatos', async (req, res) => {
     try {
         const db = await connectToMongoDB();
-        const personas = await db.collection('Personas').find().toArray();
-        res.status(200).json({ contieneDatos: personas.length > 0, personas });
+        const libros = await db.collection('Estante').find().toArray(); //crear un colección llamada "Estante" para guardar lo libros allí
+        res.status(200).json({ contieneDatos: libros.length > 0, Estante: libros });
     } catch (error) {
         console.error('Error al obtener los datos:', error);
         res.status(500).send('Error al verificar los datos');
@@ -82,8 +86,8 @@ app.get('/verificarDatos', async (req, res) => {
 app.post('/guardarDatos', async (req, res) => {
     try {
         const db = await connectToMongoDB();
-        const persona = req.body;
-        await db.collection('Personas').insertOne(persona);
+        const libro = req.body;
+        await db.collection('Estante').insertOne(libro);
         res.status(200).send('Datos guardados correctamente');
     } catch (error) {
         console.error('Error al guardar los datos:', error);
@@ -118,12 +122,12 @@ app.post('/guardarDatosJson', (req, res) => {
 
 
 
-// Eliminar una persona
+// Eliminar libro
 app.post('/borrarDatos', async (req, res) => {
     try {
         const db = await connectToMongoDB();
-        const { email } = req.body; //se extrae la propiedad email del objeto req.body y se asigna a una constante llamada email
-        await db.collection('Personas').deleteOne({ email }); //La función deleteOne busca un documento en la colección Personas donde el campo email coincida con el valor de la constante email. Si encuentra un documento coincidente, lo elimina
+        const { nombreLib } = req.body; //se extrae la propiedad email del objeto req.body y se asigna a una constante llamada email
+        await db.collection('Estante').deleteOne({ nombreLib }); //La función deleteOne busca un documento en la colección Personas donde el campo email coincida con el valor de la constante email. Si encuentra un documento coincidente, lo elimina
         res.status(200).send('Datos borrados correctamente');
     } catch (error) {
         console.error('Error al borrar los datos:', error);
@@ -131,13 +135,13 @@ app.post('/borrarDatos', async (req, res) => {
     }
 });
   
-// Actualizar una persona
+// Actualizar libro
 app.put('/actualizarDatos', async (req, res) => {
     try {
         const db = await connectToMongoDB();
-        const personaActualizada = req.body;
-        const { email } = personaActualizada;
-        await db.collection('Personas').updateOne({ email }, { $set: personaActualizada });
+        const bookUpdated = req.body;
+        const { nombreLib } = bookUpdated;
+        await db.collection('Personas').updateOne({ nombreLib }, { $set: bookUpdated });
         res.status(200).send('Datos actualizados correctamente');
     } catch (error) {
         console.error('Error al actualizar los datos:', error);

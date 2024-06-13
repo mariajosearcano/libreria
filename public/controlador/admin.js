@@ -41,16 +41,12 @@ fetch('modelo/datos.json')
         const rutaImagen = data.imagen_corporativa;
 
         //mostrar mision en <p>
-        const contenidoMision = document.getElementById('mision');
         const parrafoMision = document.getElementById('misionTxt');
         parrafoMision.textContent = mision;
-        //contenidoMision.appendChild(parrafoMision);
 
         //mostrar vision en <p>
-        const contenidoVision = document.getElementById('vision');
         const parrafoVision = document.getElementById('visionTxt');
         parrafoVision.textContent = vision;
-        //contenidoVision.appendChild(parrafoVision);
 
         //mostrar imagen en <img>
         const imagenDiv = document.getElementById('imagen');

@@ -191,18 +191,36 @@
                                                     name="precioLibro"
                                                     placeholder="Valor del libro">
                                             </div>
-                                            <button type="submit"
+                                            <button type="submit" id="addBtn"
                                                 class="btn btn-primary">Guardar
                                                 datos</button>
                                         </form>
+                                        <div id="table-container">
+                                            <div class="tabla" id="table">
+                                                <table id="tablet">
+                                                    <caption><h1>Lista libros</h1></caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Editorial</th>
+                                                            <th>Autor(es)</th>
+                                                            <th>Precio</th>
+                                                            <th>Imágen</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tabla-body">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </section>
                                     </div>
-                                </section>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-    </body>
-    <script src="../controlador/admin.js"></script>
-</html>
+                </section>
+            </body>
+            <script src="../controlador/admin.js"></script>
+            <script src="../controlador/validacionLibros.js"></script>
+        </html>

@@ -268,9 +268,9 @@ td {
 }
 
 .mv {
-    display: grid;
+    display: flexbox;
     grid-template-rows: 5vh 5vh;
-    padding: 5vh 0;
+    padding: 5px 0;
 }
 
 .mv p, 
