@@ -1,5 +1,11 @@
 # libreria
 
+By:
+- [Hoftez](https://github.com/Hoftez)
+- [JoseloC1206](https://github.com/JoseloC1206)
+- [nigthsky18](https://github.com/nigthsky18)
+- [mariajosearcano](https://github.com/mariajosearcano)
+
 ## Guía para Clonar Proyecto, Ejecutar una Aplicación en Node.js e Iniciar el Servidor de MongoDB
 
 ### Requisitos Previos
